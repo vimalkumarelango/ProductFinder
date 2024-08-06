@@ -41,16 +41,7 @@ function ImageList({ searchKey, images }) {
   return (
     <Grid container spacing={4} marginY={1}>
       {data.length > 0 ? (
-        data
-          .slice(start, end)
-          .map(({ alt_description, id, urls: { thumb } }, idx) => (
-            <ImageCard
-              key={idx}
-              title={alt_description}
-              productImage={thumb}
-              id={id}
-            />
-          ))
+        <ImageCard itemData={data.slice(start, end)} />
       ) : (
         <Grid item xs={12}>
           <Stack

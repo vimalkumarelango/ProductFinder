@@ -1,17 +1,31 @@
-import { Grid, Typography } from "@mui/material";
+import { ImageList, ImageListItem, ImageListItemBar } from "@mui/material";
 import React from "react";
-import { Link } from "react-router-dom";
-import Image from "../../components/Image";
+import { useNavigate } from "react-router-dom";
 import ROUTE from "../../constant/routeConstant";
 
-function ImageCard({ title, productImage, id }) {
+function ImageCard({ itemData }) {
+  const navigate = useNavigate();
+  const handleNavigate = (id) => {
+    navigate(`${ROUTE.IMAGE_DETAIL}/${id}`);
+  };
   return (
-    <Grid item xs={12} md={4}>
-      <Image src={productImage} objectFit="cover" />
-      <Link to={`${ROUTE.IMAGE_DETAIL}/${id}`}>
-        <Typography variant="h1">{title}</Typography>
-      </Link>
-    </Grid>
+    <ImageList sx={{ width: "100%" }} cols={3}>
+      {itemData.map(({ alt_description, description, urls, user, id }) => (
+        <ImageListItem key={id}>
+          <img
+            srcSet={`${urls.regular}`}
+            src={`${urls.regular}`}
+            alt={description}
+            loading="lazy"
+            onClick={() => handleNavigate(id)}
+          />
+          <ImageListItemBar
+            title={description || alt_description}
+            subtitle={`@${user.name}`}
+          />
+        </ImageListItem>
+      ))}
+    </ImageList>
   );
 }
 
