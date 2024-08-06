@@ -7,11 +7,13 @@ function Image({
   height = 200,
   alt = "Product",
   objectFit = "contain",
+  style = {},
 }) {
   return (
     <Box
       component="img"
       sx={{
+        ...style,
         width,
         height,
         objectFit,
