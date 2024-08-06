@@ -1,13 +1,19 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./assets/style/index.css";
+import reportWebVitals from "./reportWebVitals";
+import RouterPage from "./route";
+import ThemeProvider from "./theme";
+import ErrorBoundary from "./utils/ErrorBoundary";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <App />
+    <ThemeProvider>
+      <ErrorBoundary>
+        <RouterPage />
+      </ErrorBoundary>
+    </ThemeProvider>
   </React.StrictMode>
 );
 
