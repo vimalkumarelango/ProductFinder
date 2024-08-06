@@ -1,5 +1,5 @@
 const ENDPOINT = {
-  PRODUCT: "/products",
+  PHOTOS: "/photos",
 };
 
 export default ENDPOINT;

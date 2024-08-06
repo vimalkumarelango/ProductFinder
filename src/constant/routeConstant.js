@@ -1,6 +1,6 @@
 const ROUTE = {
   HOME: "/",
-  PRODUCT_DETAIL: "/detail",
+  IMAGE_DETAIL: "/detail",
 };
 
 export default ROUTE;
