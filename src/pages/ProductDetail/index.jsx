@@ -32,9 +32,18 @@ function ProductDetail() {
   const [product, dispatch] = useReducer(reducer, initialState);
 
   const {
-    data: { price, description, returnPolicy, title, images },
+    data: {
+      price,
+      description,
+      returnPolicy,
+      title,
+      images,
+      tags,
+      warrantyInformation,
+      rating
+    },
     isLoading,
-    isError
+    isError,
   } = product;
 
   useEffect(() => {
@@ -63,6 +72,9 @@ function ProductDetail() {
                 price={price}
                 subTitle={returnPolicy}
                 title={title}
+                tags={tags}
+                warranty={warrantyInformation}
+                rating={rating}
               />
             </Grid>
           </Grid>
